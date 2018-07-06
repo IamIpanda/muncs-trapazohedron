@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            MUNCS Trapazonhedron
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>国家名</ion-label>
+            <ion-input type="text" [(ngModel)]="country"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>服务器地址</ion-label>
+            <ion-input type="text" [(ngModel)]="ipAddress"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button block color="secondary" (click)="start()">提交</button>
+</ion-content>

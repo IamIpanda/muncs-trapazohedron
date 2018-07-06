@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <div>{{this.title}}</div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="!this.vote && !this.call">
+    <p *ngFor="let message of this.messagePool.split('\n\r')" class="normal-command">{{message}}</p>
+  </div>
+  <div *ngIf="this.call">
+    <p>正在点名。</p>
+    <button ion-button round outline (click)="this.executeCall('present')" color="secondary">出席</button>
+    <button ion-button round outline (click)="this.executeCall('absent')" color="danger">缺席</button>
+  </div>
+  <div *ngIf="this.vote">
+    <p>正在投票。</p>
+    <button ion-button round outline (click)="this.executeVote('approve')" color="">赞成</button>
+    <button ion-button round outline (click)="this.executeVote('oppose')"  color="">反对</button>
+    <button ion-button round outline (click)="this.executeVote('abstain')" color="" *ngIf="true">弃权</button>
+    <button ion-button round outline (click)="this.executeVote('skip')"    color="" *ngIf="true">跳过</button>
+  </div>
+  <div *ngIf="this.hintMessage != null" class="speak-hint">{{this.hintMessage}}</div>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title>{{this.footer}}</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>
